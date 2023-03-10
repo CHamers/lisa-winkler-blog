@@ -1,0 +1,72 @@
+/* RESET */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+/* MAIN STYLING */
+html,
+body {
+  font-family: "Trebuchet MS", "Lucida Sans Unicode", "Lucida Grande",
+    "Lucida Sans", Arial, sans-serif;
+  line-height: 1.7em;
+}
+.grid-container {
+  display: grid;
+  grid-template-columns: 100vw; /* create one column that is 100% of viewport width */
+  grid-template-rows: 1fr 6fr 0.5fr; /* create 3 rows with specified height ratios */
+  height: 100vh; /* set the height of the grid to be the full viewport height */
+  justify-content: center; /* center the grid horizontally */
+}
+.grid-item {
+  padding: 1em 10em;
+}
+ul {
+  list-style: none;
+}
+a {
+  color: #333;
+  text-decoration: none;
+}
+h2 {
+  padding-bottom: 10px;
+}
+p {
+  margin: 10px 0;
+}
+/* NAVBAR */
+header {
+  /* background-color: red; */
+}
+#navbar {
+  background-color: #333;
+  color: whitesmoke;
+
+  display: flex;
+  align-items: center;
+}
+#navbar li {
+  padding-left: 2em;
+}
+#navbar a:link,
+#navbar a:visited {
+  color: whitesmoke;
+}
+#navbar a:hover,
+#navbar a:active {
+  color: burlywood;
+}
+.menu {
+  display: flex;
+}
+.logo {
+  flex-grow: 1;
+}
+
+/* BODY */
+
+/* BODY */
+footer {
+  background-color: #444;
+  color: lightgrey;
+}
