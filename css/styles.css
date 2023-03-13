@@ -63,10 +63,50 @@ header {
   flex-grow: 1;
 }
 
-/* BODY */
-
-/* BODY */
+/* FOOTER */
 footer {
   background-color: #444;
   color: lightgrey;
+}
+
+/* MEDIA QUERIES */
+
+/* Wide screen */
+@media (min-width: 1921px) {
+  .grid-item {
+    padding: 1em 20em;
+  }
+}
+/* Normal/Default */
+@media (max-width: 1920px) {
+}
+
+/* Tablet big */
+@media (max-width: 950px) {
+  /* .grid-container {
+    display: block;
+  } */
+  .grid-item {
+    padding: 1em 4em;
+  }
+}
+
+/* Tablet small */
+@media (max-width: 768px) {
+  /* body {
+    background-color: blue;
+  } */
+  .grid-item {
+    padding: 1em 10px;
+  }
+}
+
+/* Smartphones */
+@media (max-width: 500px) {
+  /* body {
+    background-color: red;
+  } */
+  .grid-item {
+    padding: 1em px;
+  }
 }
