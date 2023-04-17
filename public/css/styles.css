@@ -8,6 +8,7 @@
 html {
   /* 62.5% of 16px is 10px */
   font-size: 62.5%;
+  color: #291f1e;
   scroll-behavior: smooth;
 }
 body {
@@ -31,7 +32,6 @@ ul {
   list-style: none;
 }
 a {
-  color: #333;
   text-decoration: none;
 }
 h1 {
@@ -46,8 +46,8 @@ p {
 }
 /* NAVBAR */
 header {
-  background-color: #333;
-  border-bottom: calc(2px + 0.186vw) solid lightslategray;
+  background-color: #60a3bc;
+  border-bottom: calc(2px + 0.186vw) solid #e58e26;
 }
 .list {
   display: flex;
@@ -66,7 +66,7 @@ header {
 }
 .navbar a:hover,
 .navbar a:active {
-  color: burlywood;
+  color: #fa983a;
 }
 .menubar {
   display: flex;
@@ -75,7 +75,7 @@ header {
   flex-grow: 1;
 }
 .logo-text {
-  color: whitesmoke;
+  color: #fa983a;
 }
 .list-items a {
   color: whitesmoke;
@@ -108,14 +108,25 @@ header {
   font-size: calc(1.5rem + 0.8vw);
 }
 
+/* FORM */
+.form {
+  display: flex;
+  flex-direction: column;
+  width: 50%;
+}
+.form button {
+  width: 60px;
+  margin-top: 5px;
+}
+
 /* FOOTER */
 footer {
-  background-color: #444;
+  background-color: #0a3d62;
   color: lightgrey;
   font-family: "Trebuchet MS", "Lucida Sans Unicode", "Lucida Grande",
     "Lucida Sans", Arial, sans-serif;
   font-size: 1.6rem;
-  border-top: calc(2px + 0.186vw) solid lightslategray;
+  border-top: calc(2px + 0.186vw) solid #e58e26;
 }
 
 /* MEDIA QUERIES */
@@ -172,7 +183,7 @@ footer {
     width: 100%;
     height: 100vh;
     z-index: 11;
-    background: #525252;
+    background: #82ccdd;
     overflow: hidden;
     transform: translate(-100%);
     transition: 0.3s linear;
@@ -196,10 +207,10 @@ footer {
     font-size: 1.4rem;
   }
   .menu-list-items a {
-    color: #f09d51;
+    color: #e58e26;
   }
   .menu-list-items a:hover {
-    color: #f57b09;
+    color: #f6b93b;
   }
 }
 

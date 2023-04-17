@@ -1,0 +1,28 @@
+{
+  "name": "lisawinklerblogapp",
+  "version": "1.0.0",
+  "description": "Lisa Winkler's blog and maps app",
+  "main": "index.js",
+  "scripts": {
+    "start": "node index.js",
+    "dev": "nodemon index.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/CHamers/lisa-winkler-blog.git"
+  },
+  "author": "Christel Hamers",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/CHamers/lisa-winkler-blog/issues"
+  },
+  "homepage": "https://github.com/CHamers/lisa-winkler-blog#readme",
+  "dependencies": {
+    "ejs": "^3.1.9",
+    "express": "^4.18.2",
+    "lodash": "^4.17.21"
+  },
+  "devDependencies": {
+    "nodemon": "^2.0.22"
+  }
+}
