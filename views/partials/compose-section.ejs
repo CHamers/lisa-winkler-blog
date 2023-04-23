@@ -1,0 +1,19 @@
+<section id="compose">
+  <form class="form compose__form" action="/compose" method="post">
+    <label for="title">Title</label>
+    <input type="text" name="postTitle" id="title" />
+    <label for="post">Post</label>
+    <textarea name="postBody" id="post" cols="30" rows="10"></textarea>
+    <p>
+        <label for="post-img">Upload image</label>
+        <input
+          type="file"
+          id="post-img"
+          name="postImg"
+          accept="image/jpeg, image/png, image/jpg"
+        />
+    </p>
+   
+    <button type="submit">Publish</button>
+  </form>
+</section>
