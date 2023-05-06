@@ -134,7 +134,7 @@ ul.header__main-nav--links li a:hover::after,
 ul.header__main-nav--links li a:active::after {
   transform: scaleX(1);
 }
-/* SHOWCASE / HE\RO SECTION */
+/* SHOWCASE / HERO SECTION */
 section#showcase {
   height: 100vh;
   background-image: url("/img/LisaPhoto2_cropped2.jpg");
@@ -696,7 +696,7 @@ section#compose {
 }
 .form input,
 .form textarea {
-  color: white;
+  color: black;
   font-family: "Indie Flower", cursive;
   font-size: 1.5rem;
   letter-spacing: 0.2rem;

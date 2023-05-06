@@ -1,6 +1,6 @@
 <section id="blogs">
-    <h2>My Blog</h2>
-    <!-- <div class="blogs__card">
+  <h2>My Blog</h2>
+  <!-- <div class="blogs__card">
         <div class="blogs__card--img">
             <% blogPosts.forEach(post =>{ %> 
                 <img src="img/BlogDummyMed.jpg" alt="Blog Picture">
@@ -18,25 +18,22 @@
         </div>
     </div> -->
 
-    <% blogPosts.forEach((post)=>{ %>
-        <div class="blogs__card">
-            <div class="blogs__card--img">
-               
-                    <img src="img/BlogDummyMed.jpg" alt="Blog Picture">
-                   
-            </div>
-            <div class="blogs__card--title">
-                <h3 class="blogs__card--content__title"><%= post.title %></h3>
-            </div>
-            <div class="blogs__card--content">
-                    <p class="blogs__card--content__para">
-                      <%= post.content.substring(0,100) + " ..." %>
-                      <a href="/posts/<%= post.title %>"> Read More</a>
-                    </p>
-                    <!-- <p><%= post.img %></p> -->
-                 
-            </div>
-        </div>    
-   <% }) %>
-
+  <% blogPosts.forEach((post)=>{ %>
+  <div class="blogs__card">
+    <div class="blogs__card--img">
+      <img src="img/BlogDummyMed.jpg" alt="Blog Picture" />
+    </div>
+    <div class="blogs__card--title">
+      <h3 class="blogs__card--content__title"><%= post.title %></h3>
+    </div>
+    <div class="blogs__card--content">
+      <p class="blogs__card--content__para">
+        <%= post.content.substring(0,100) + " ..." %>
+        <a href="/posts/<%= post.title %>"> Read More</a>
+      </p>
+      <!-- <p><%= post.img %></p> -->
+      <!-- <p><img src="data:image/jpg;base64,post.img" alt="blog image" /></p> -->
+    </div>
+  </div>
+  <% }) %>
 </section>

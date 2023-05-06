@@ -1,7 +1,7 @@
 const express = require("express");
 const ejs = require("ejs");
+// const multer = require("multer");
 const _ = require("lodash");
-
 
 const app = express();
 const port = process.env.PORT || 3000;
@@ -65,12 +65,40 @@ app.post("/compose", function (req, res) {
   res.redirect("/blog");
 });
 
+// const upload = multer({
+//   // dest: "avatars",
+//   limits: {
+//     fileSize: 1000000,
+//   },
+//   fileFilter(req, file, cb) {
+//     if (!file.originalname.match(/\.(jpg|jpeg|png)$/)) {
+//       return cb(new Error("Please upload an image"));
+//     }
+//     cb(undefined, true);
+//   },
+// });
+
+// app.post("/compose", upload.single("avatar"), function (req, res) {
+//   const post = {
+//     title: req.body.postTitle,
+//     content: req.body.postBody,
+//     img: req.file.buffer,
+//   };
+//   posts.push(post);
+
+//   res.redirect("/blog");
+// });
+
 app.get("/posts/:postName", function (req, res) {
   const requestedTitle = _.lowerCase(req.params.postName);
   posts.forEach(function (post) {
     const storedTitle = _.lowerCase(post.title);
     if (storedTitle === requestedTitle) {
-      res.render("post", { title: post.title, content: post.content,img: post.img });
+      res.render("post", {
+        title: post.title,
+        content: post.content,
+        img: post.img,
+      });
     }
   });
 });
