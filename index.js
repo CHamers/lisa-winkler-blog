@@ -2,6 +2,7 @@ const express = require("express");
 const ejs = require("ejs");
 // const multer = require("multer");
 const _ = require("lodash");
+const mongoose = require("mongoose");
 
 const app = express();
 const port = process.env.PORT || 3000;
@@ -12,7 +13,22 @@ app.use(express.urlencoded({ extended: true }));
 app.use(express.json());
 app.use(express.static("public"));
 
-const posts = [];
+main().catch((err) => console.log(err));
+async function main() {
+  await mongoose.connect(
+    "mongodb+srv://admin-christel:PhilMilLil33@cluster0.1xmekav.mongodb.net/blogDB"
+  );
+}
+
+//Created Schema
+const postSchema = new mongoose.Schema({
+  title: String,
+  content: String,
+});
+//Created model
+const Post = mongoose.model("Post", postSchema);
+
+// const posts = [];
 
 // app.get("/", function (req, res) {
 //   res.render("about", {
@@ -20,18 +36,36 @@ const posts = [];
 //   });
 // });
 app.get("/", function (req, res) {
-  res.render("home", {
-    blogPosts: posts,
-  });
+  // res.render("home", {
+  //   blogPosts: posts,
+  // });
+  Post.find({})
+    .then(function (posts) {
+      res.render("home", {
+        blogPosts: posts,
+      });
+    })
+    .catch(function (err) {
+      console.log(err);
+    });
 });
 app.get("/home", function (req, res) {
   res.render("home");
 });
 
 app.get("/blog", function (req, res) {
-  res.render("blog", {
-    blogPosts: posts,
-  });
+  // res.render("blog", {
+  //   blogPosts: posts,
+  // });
+  Post.find({})
+    .then(function (posts) {
+      res.render("blog", {
+        blogPosts: posts,
+      });
+    })
+    .catch(function (err) {
+      console.log(err);
+    });
 });
 
 app.get("/publications", function (req, res) {
@@ -55,14 +89,23 @@ app.get("/compose", function (req, res) {
 });
 
 app.post("/compose", function (req, res) {
-  const post = {
+  console.log(req.body);
+  const post = new Post({
     title: req.body.postTitle,
     content: req.body.postBody,
     img: req.body.postImg,
-  };
-  posts.push(post);
-
-  res.redirect("/blog");
+  });
+  // post.save();
+  // // posts.push(post);
+  // res.redirect("/blog");
+  post
+    .save()
+    .then(function (post) {
+      res.redirect("/blog");
+    })
+    .catch(function (err) {
+      console.log(err);
+    });
 });
 
 // const upload = multer({
@@ -89,18 +132,31 @@ app.post("/compose", function (req, res) {
 //   res.redirect("/blog");
 // });
 
-app.get("/posts/:postName", function (req, res) {
-  const requestedTitle = _.lowerCase(req.params.postName);
-  posts.forEach(function (post) {
-    const storedTitle = _.lowerCase(post.title);
-    if (storedTitle === requestedTitle) {
+// :postId is dynamic browser '_id'
+app.get("/posts/:postId", function (req, res) {
+  console.log(req.params);
+  const requestedPostId = req.params.postId;
+  Post.findOne({ _id: requestedPostId })
+    .then(function (post) {
       res.render("post", {
         title: post.title,
         content: post.content,
         img: post.img,
       });
-    }
-  });
+    })
+    .catch(function (err) {
+      console.log(err);
+    });
+  // posts.forEach(function (post) {
+  //   const storedTitle = _.lowerCase(post.title);
+  //   if (storedTitle === requestedTitle) {
+  //     res.render("post", {
+  //       title: post.title,
+  //       content: post.content,
+  //       img: post.img,
+  //     });
+  //   }
+  // });
 });
 
 app.listen(port, function () {
